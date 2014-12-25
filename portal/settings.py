@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     # david created these
     #
     'polls',
+    'members',
 )
 
 MIDDLEWARE_CLASSES = (
