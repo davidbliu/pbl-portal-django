@@ -1,0 +1,11 @@
+{% if member_list %}
+    <ul>
+    {% for member in member_list %}
+        <li>{{ member.name }} | {{ member.id }} | {{member.google_id}}
+
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No members are available.</p>
+{% endif %}

@@ -37,6 +37,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #
+    # oauth
+    #
+    'social.apps.django_app.default',
+    #
     # david created these
     #
     'polls',
@@ -68,7 +72,7 @@ DATABASES = {
         'USER': 'david',
         'PASSWORD':'password',
         'HOST':'localhost',
-        'PORT':'5432',
+        'PORT':'5433',
     }
 }
 
