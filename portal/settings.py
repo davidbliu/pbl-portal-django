@@ -26,6 +26,11 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# added by davidbliu 12/26 for global templates
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'),
+)
 
 # Application definition
 
@@ -43,9 +48,34 @@ INSTALLED_APPS = (
     #
     # david created these
     #
+    'portal',
     'polls',
     'members',
 )
+#
+# added for Auth
+#
+TEMPLATE_CONTEXT_PROCESSORS = (
+   'django.contrib.auth.context_processors.auth',
+   'django.core.context_processors.debug',
+   'django.core.context_processors.i18n',
+   'django.core.context_processors.media',
+   'django.core.context_processors.static',
+   'django.core.context_processors.tz',
+   'django.contrib.messages.context_processors.messages',
+   'social.apps.django_app.context_processors.backends',
+   'social.apps.django_app.context_processors.login_redirect',
+)
+
+AUTHENTICATION_BACKENDS = (
+   'social.backends.facebook.FacebookOAuth2',
+   'social.backends.google.GoogleOAuth2',
+   'social.backends.twitter.TwitterOAuth',
+   'django.contrib.auth.backends.ModelBackend',
+)
+#
+# end
+#
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
